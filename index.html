@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#064e3b">
+
+<title>Masjidul Taqwaa | Official App</title>
+
+<style>
+:root{
+--green:#064e3b;
+--green2:#087451;
+--gold:#d6ad52;
+--bg:#f4f7f4;
+--card:#ffffff;
+--text:#18352a;
+--muted:#718078;
+--border:#e4ebe5;
+--shadow:0 5px 22px rgba(0,0,0,.06);
+}
+
+.dark{
+--bg:#101c17;
+--card:#1b2b23;
+--text:#edf5ee;
+--muted:#a8b9ad;
+--border:#304238;
+--shadow:0 5px 22px rgba(0,0,0,.2);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+padding-bottom:85px;
+transition:.3s;
+}
+
+button{
+cursor:pointer;
+border:none;
+}
+
+header{
+background:linear-gradient(135deg,#043d2e,#087451);
+color:white;
+padding:20px 17px 25px;
+border-radius:0 0 25px 25px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo{
+width:43px;
+height:43px;
+border-radius:50%;
+background:#ffffff20;
+display:grid;
+place-items:center;
+font-size:25px;
+border:1px solid #ffffff50;
+}
+
+.brand h2{
+font-size:17px;
+}
+
+.brand small{
+color:#d7e9dc;
+font-size:11px;
+}
+
+.header-btn{
+background:#ffffff20;
+color:white;
+padding:10px;
+border-radius:12px;
+font-size:17px;
+}
+
+.welcome{
+margin-top:28px;
+}
+
+.welcome small{
+color:#d6eadc;
+}
+
+.welcome h1{
+font-size:25px;
+margin:9px 0;
+}
+
+.welcome p{
+font-size:13px;
+color:#d8e9df;
+line-height:1.6;
+}
+
+.hero-actions{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.btn{
+padding:12px 16px;
+border-radius:12px;
+font-weight:bold;
+font-size:12px;
+}
+
+.btn-gold{
+background:var(--gold);
+color:#193b2b;
+}
+
+.btn-outline{
+background:#ffffff18;
+color:white;
+border:1px solid #ffffff60;
+}
+
+.container{
+padding:18px 15px;
+max-width:650px;
+margin:auto;
+}
+
+.section-title{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:18px 0 13px;
+}
+
+.section-title h3{
+font-size:17px;
+}
+
+.section-title small{
+color:var(--muted);
+}
+
+.progress-card{
+background:linear-gradient(135deg,#07543d,#0b7652);
+color:white;
+padding:19px;
+border-radius:18px;
+box-shadow:var(--shadow);
+}
+
+.progress-card h3{
+margin-bottom:8px;
+}
+
+.progress-card p{
+font-size:13px;
+line-height:1.7;
+color:#d9eee2;
+}
+
+.progress-label{
+margin-top:15px;
+font-size:12px;
+color:#e3f2e7;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.menu-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:16px;
+padding:17px 13px;
+box-shadow:var(--shadow);
+text-align:left;
+color:var(--text);
+transition:.2s;
+}
+
+.menu-card:active{
+transform:scale(.96);
+}
+
+.menu-icon{
+width:43px;
+height:43px;
+background:#e7f2eb;
+border-radius:13px;
+display:grid;
+place-items:center;
+font-size:23px;
+margin-bottom:12px;
+}
+
+.dark .menu-icon{
+background:#294436;
+}
+
+.menu-card h4{
+font-size:14px;
+margin-bottom:5px;
+}
+
+.menu-card p{
+font-size:11px;
+color:var(--muted);
+line-height:1.5;
+}
+
+.info-card{
+background:var(--card);
+padding:17px;
+border-radius:16px;
+border:1px solid var(--border);
+margin-bottom:13px;
+box-shadow:var(--shadow);
+}
+
+.info-card h3{
+font-size:16px;
+margin-bottom:12px;
+}
+
+.info-card p{
+font-size:13px;
+line-height:1.8;
+color:var(--muted);
+}
+
+.account{
+background:var(--card);
+padding:16px;
+border-radius:15px;
+border:1px solid var(--border);
+margin-bottom:12px;
+}
+
+.account strong{
+display:block;
+margin-bottom:8px;
+}
+
+.account-number{
+font-size:19px;
+font-weight:bold;
+letter-spacing:1px;
+margin:10px 0;
+color:var(--green2);
+}
+
+.dark .account-number{
+color:#9ed9b8;
+}
+
+.copy-btn{
+background:var(--green);
+color:white;
+padding:10px 15px;
+border-radius:9px;
+font-size:12px;
+}
+
+.page{
+display:none;
+animation:fade .25s;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(7px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+.back-btn{
+background:var(--card);
+color:var(--text);
+padding:11px 15px;
+border-radius:11px;
+margin-bottom:15px;
+border:1px solid var(--border);
+}
+
+.page-heading{
+margin-bottom:18px;
+}
+
+.page-heading h2{
+font-size:23px;
+margin-bottom:7px;
+}
+
+.page-heading p{
+color:var(--muted);
+font-size:13px;
+line-height:1.6;
+}
+
+.list-item{
+padding:13px 0;
+border-bottom:1px solid var(--border);
+font-size:13px;
+line-height:1.7;
+}
+
+.list-item:last-child{
+border:none;
+}
+
+.setting-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid var(--border);
+font-size:14px;
+}
+
+select{
+background:var(--bg);
+color:var(--text);
+padding:10px;
+border-radius:9px;
+border:1px solid var(--border);
+}
+
+.switch{
+width:45px;
+height:24px;
+appearance:none;
+background:#aaa;
+border-radius:20px;
+position:relative;
+cursor:pointer;
+}
+
+.switch:checked{
+background:var(--green2);
+}
+
+.switch:before{
+content:"";
+position:absolute;
+width:18px;
+height:18px;
+background:white;
+border-radius:50%;
+top:3px;
+left:3px;
+transition:.2s;
+}
+
+.switch:checked:before{
+left:24px;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:var(--card);
+display:flex;
+justify-content:space-around;
+padding:10px 3px calc(10px + env(safe-area-inset-bottom));
+border-top:1px solid var(--border);
+z-index:100;
+}
+
+.nav-item{
+background:none;
+color:var(--muted);
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+font-size:10px;
+min-width:55px;
+}
+
+.nav-item span{
+font-size:20px;
+}
+
+.nav-item.active{
+color:var(--green2);
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:25px 10px;
+color:var(--muted);
+font-size:11px;
+line-height:2;
+}
+
+.toast{
+position:fixed;
+bottom:90px;
+left:50%;
+transform:translateX(-50%);
+background:#173e2e;
+color:white;
+padding:12px 20px;
+border-radius:12px;
+font-size:13px;
+display:none;
+z-index:200;
+white-space:nowrap;
+}
+
+.arabic{
+direction:rtl;
+text-align:right;
+}
+
+@media(min-width:600px){
+.container{
+padding:25px;
+}
+.menu-grid{
+grid-template-columns:repeat(3,1fr);
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="topbar">
+
+<div class="brand">
+<div class="logo">🕌</div>
+<div>
+<h2>MASJIDUL TAQWAA</h2>
+<small>Ganda Kufakasa</small>
+</div>
+</div>
+
+<button class="header-btn" onclick="openPage('settings')">⚙️</button>
+
+</div>
+
+<div class="welcome">
+<small id="welcomeText">Assalaamu Alaykum! 🌙</small>
+
+<h1 id="heroTitle">Masjidul Taqwaa</h1>
+
+<p id="heroDescription">
+Masjida keenya waliin haa ijaarru.
+Deeggarsa keessaniif galatoomaa.
+</p>
+
+<div class="hero-actions">
+<button class="btn btn-gold" onclick="openPage('donate')" id="donateBtn">
+🤲 Deeggarsa
+</button>
+
+<button class="btn btn-outline"
+onclick="openPage('about')" id="aboutBtn">
+🕌 Waa'ee Masjidaa
+</button>
+</div>
+</div>
+</header>
+
+<main class="container">
+
+<!-- HOME -->
+
+<section class="page active" id="home">
+
+<div class="section-title">
+<h3 id="quickTitle">Haala Ijaarsaa</h3>
+<small>🏗️</small>
+</div>
+
+<div class="progress-card">
+<h3>🕌 Masjidul Taqwaa</h3>
+<p id="constructionText">
+Alhamdulillaah, ijaarsi masjidaa gaggeeffamaa jira.
+Hojii hafan xumuruuf deeggarsi hawaasaa barbaachisa.
+</p>
+
+<div class="progress-label">
+🤝 Hirmaannaan keessan ni barbaachisa.
+</div>
+</div>
+
+<div class="section-title">
+<h3 id="exploreTitle">Maal Ilaaluu Barbaadda?</h3>
+<small>Explore</small>
+</div>
+
+<div class="menu-grid">
+
+<button class="menu-card" onclick="openPage('about')">
+<div class="menu-icon">🕌</div>
+<h4>Waa'ee Masjidaa</h4>
+<p>Odeeffannoo masjidaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('location')">
+<div class="menu-icon">📍</div>
+<h4>Teessoo</h4>
+<p>Bakka masjidaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('donate')">
+<div class="menu-icon">💰</div>
+<h4>Deeggarsa</h4>
+<p>Akkaataa deeggarsaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('construction')">
+<div class="menu-icon">🏗️</div>
+<h4>Ijaarsa</h4>
+<p>Oduu ijaarsaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('plans')">
+<div class="menu-icon">🎯</div>
+<h4>Karoora</h4>
+<p>Karoora fuulduraa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('gallery')">
+<div class="menu-icon">📸</div>
+<h4>Gallery</h4>
+<p>Suuraalee masjidaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('islamic')">
+<div class="menu-icon">📖</div>
+<h4>Qur'aana & Du'aa</h4>
+<p>Yaadannoo Islaamaa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('notifications')">
+<div class="menu-icon">🔔</div>
+<h4>Beeksisa</h4>
+<p>Oduu fi beeksisa</p>
+</button>
+
+<button class="menu-card" onclick="openPage('contact')">
+<div class="menu-icon">📞</div>
+<h4>Nu Qunnamaa</h4>
+<p>Karaa qunnamtii</p>
+</button>
+
+<button class="menu-card" onclick="openPage('website')">
+<div class="menu-icon">🌐</div>
+<h4>Website</h4>
+<p>Website keenya daawwadhaa</p>
+</button>
+
+</div>
+
+<div class="section-title">
+<h3>🤲 Du'aa fi Galata</h3>
+</div>
+
+<div class="info-card">
+<p>
+Jazaakumullaahu Khayran.
+
+Rabbiin warra masjida ijaaruu fi deeggaran
+qabeenya isaanii haa eebbisu, hojii isaanii
+haa qeebalu, Jannata Firdowsiin haa badhaasu.
+
+Aamiin.
+</p>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="page" id="about">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🕌 Waa'ee Masjidaa</h2>
+<p>About Masjidul Taqwaa</p>
+</div>
+
+<div class="info-card">
+<h3>Masjidul Taqwaa</h3>
+<p>
+Masjidul Taqwaa masjida hawaasa naannoo
+Kufakaasaa tajaajiluudha.
+
+Kaayyoon isaa ibaadaa, barnoota Islaamaa,
+Qur'aana barsiisuu fi tajaajila hawaasaa
+kennuudha.
+
+Amma ijaarsi isaa deeggarsa obbolootaatiin
+gaggeeffamaa jira.
+</p>
+</div>
+
+<div class="info-card">
+<h3>🎯 Kaayyoo Keenya</h3>
+<p>
+Ibaadaa, barnoota Qur'aanaa, barsiisa Islaamaa
+fi tajaajila hawaasaa cimsuudha.
+</p>
+</div>
+
+</section>
+
+<!-- LOCATION -->
+
+<section class="page" id="location">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>📍 Teessoo Masjidaa</h2>
+<p>Location Information</p>
+</div>
+
+<div class="info-card">
+<div class="list-item">🌍 Godina: Harargee Bahaa</div>
+<div class="list-item">🏘️ Aanaa: Babbilee</div>
+<div class="list-item">🌾 Araddaa: Ifaddiin</div>
+<div class="list-item">🏡 Ganda: Kufakaasaa</div>
+</div>
+
+</section>
+
+<!-- DONATE -->
+
+<section class="page" id="donate">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🤲 Deeggarsa Masjidaa</h2>
+<p>Masjida keenya waliin haa ijaarru.</p>
+</div>
+
+<div class="info-card">
+<h3>💚 Deeggarsa keessaniif galatoomaa!</h3>
+<p>
+Ijaarsa Masjidul Taqwaa xumuruuf
+hirmaannaa keessan ni kabajna.
+
+Rabbiin deeggarsa keessan isin irraa
+haa qeebalu. Aamiin.
+</p>
+</div>
+
+<div class="account">
+<strong>🏦 Bank of Ethiopia</strong>
+<p>Account Name: Masjidu Taqwaa</p>
+<div class="account-number">1000452313875</div>
+
+<button class="copy-btn"
+onclick="copyText('1000452313875')">
+📋 Copy Account
+</button>
+</div>
+
+<div class="account">
+<strong>💳 E-BIRR</strong>
+<p>Account Name: Masjidu Taqwaa Ebr</p>
+<div class="account-number">0988870275</div>
+
+<button class="copy-btn"
+onclick="copyText('0988870275')">
+📋 Copy Account
+</button>
+</div>
+
+<div class="info-card">
+<h3>🤝 Galatoomaa</h3>
+<p>
+Gumaachi keessan hundi barbaachisaa dha.
+Rabbiin hojii keessan haa qeebalu.
+</p>
+</div>
+
+</section>
+
+<!-- CONSTRUCTION -->
+
+<section class="page" id="construction">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🏗️ Haala Ijaarsaa</h2>
+<p>Construction Updates</p>
+</div>
+
+<div class="info-card">
+<h3>Alhamdulillaah!</h3>
+<p>
+Ijaarsi Masjidul Taqwaa sadarkaa gaarii irra jira.
+
+Haa ta'u malee hojii hafan xumuruuf
+deeggarsi maallaqaa barbaachisa.
+
+Waan yeroo ammaa barbaachisaa ta'e
+keessaa afataadha.
+</p>
+</div>
+
+<div class="info-card">
+<h3>🤲 Hirmaannaa Keessan</h3>
+<p>
+Hirmaannaa keessan ni kabajna.
+Rabbiin warra masjida ijaaruu irratti
+hirmaatan haa badhaasu.
+</p>
+<button class="copy-btn" onclick="openPage('donate')">
+Deeggarsa Godhi
+</button>
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section class="page" id="gallery">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>📸 Gallery</h2>
+<p>Suuraalee Masjidul Taqwaa</p>
+</div>
+
+<div class="info-card">
+<h3>🕌 Masjidul Taqwaa</h3>
+<p>
+Suuraaleen ijaarsaa yeroo argaman
+as irratti ni maxxanfamu.
+</p>
+</div>
+
+</section>
+
+<!-- PLANS -->
+
+<section class="page" id="plans">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🎯 Karoora Fuulduraa</h2>
+<p>Future Plans</p>
+</div>
+
+<div class="info-card">
+
+<div class="list-item">🕌 Ijaarsa masjidaa guutummaatti xumuru.</div>
+
+<div class="list-item">📚 Kutaa barnoota Qur'aanaa fi Islaamaa banuu.</div>
+
+<div class="list-item">💧 Bishaan fi bakka wuduu ammayyaa ijaaruu.</div>
+
+<div class="list-item">📢 Sagantaa Da'awaa fi barnootaa babal'isuu.</div>
+
+<div class="list-item">👨‍👩‍👧‍👦 Hawaasaaf tajaajila amantii fi hawaasummaa cimsuu.</div>
+
+</div>
+
+<div class="info-card">
+<p>
+Karoorri kun deeggarsa Rabbii fi
+hirmaannaa obboloota keenyaan akka milkaa'u
+ni kadhanna.
+
+🤲 Rabbiin nu haa gargaaru. Aamiin.
+</p>
+</div>
+
+</section>
+
+<!-- ISLAMIC -->
+
+<section class="page" id="islamic">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>📖 Islamic Corner</h2>
+<p>Yaadannoo Islaamaa</p>
+</div>
+
+<div class="info-card">
+<h3>بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
+<p class="arabic">
+بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+</p>
+<p>Rahmataafi mararfannaa Rabbii maqaa jedhuun.</p>
+</div>
+
+<div class="info-card">
+<h3>🤲 Du'aa</h3>
+<p class="arabic">
+رَبَّنَا تَقَبَّلْ مِنَّا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ
+</p>
+<p>
+Rabbi keenya! Nu irraa qeebali.
+Ati dhagayaa, beekaa dha.
+</p>
+<small>Surah Al-Baqarah 2:127</small>
+</div>
+
+<div class="info-card">
+<h3>🤲 Du'aa fi Galata</h3>
+<p>
+Jazaakumullaahu Khayran.
+
+Rabbiin warra masjida ijaaruu fi deeggaran
+qabeenya isaanii haa eebbisu.
+Aamiin.
+</p>
+</div>
+
+</section>
+
+<!-- NOTIFICATIONS -->
+
+<section class="page" id="notifications">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🔔 Notifications</h2>
+<p>Beeksisa Masjidul Taqwaa</p>
+</div>
+
+<div class="info-card">
+<h3>📢 Baga Nagaan Dhuftan</h3>
+<p>
+Baga gara appii Masjidul Taqwaa dhuftan.
+
+Odeeffannoo masjidaa fi deeggarsa
+as irraa argachuu dandeessu.
+</p>
+</div>
+
+<div class="info-card">
+<h3>🏗️ Oduu Ijaarsaa</h3>
+<p>
+Ijaarsi Masjidul Taqwaa itti fufee jira.
+Deeggarsi keessan barbaachisaa dha.
+</p>
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="page" id="contact">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>📞 Nu Qunnamaa</h2>
+<p>Contact Us</p>
+</div>
+
+<div class="info-card">
+<h3>☎️ Masjidul Taqwaa</h3>
+<p>
+Bilbila: 0988870275
+</p>
+
+<br>
+
+<button class="copy-btn"
+onclick="window.location.href='tel:0988870275'">
+📞 Bilbili
+</button>
+</div>
+
+<div class="info-card">
+<h3>👤 Qindeessaa Appii</h3>
+<p>
+Maqaa: Mr. Keyraddiin Abdellaa
+</p>
+<p>
+Gahee: Software Engineering fi
+Qindeessaa Deeggarsa Masjidul Taqwaa.
+</p>
+<p>
+Bilbila: 0995555866
+</p>
+
+<br>
+
+<button class="copy-btn"
+onclick="window.location.href='tel:0995555866'">
+📞 Qunnamaa
+</button>
+</div>
+
+</section>
+
+<!-- WEBSITE -->
+
+<section class="page" id="website">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>🌐 Official Website</h2>
+<p>Masjidul Taqwaa Online</p>
+</div>
+
+<div class="info-card">
+<h3>🕌 Masjidul Taqwaa Website</h3>
+<p>
+Website keenya daawwachuun odeeffannoo
+dabalataa argachuu dandeessu.
+</p>
+
+<br>
+
+<button class="copy-btn"
+onclick="window.open('https://keyraddiin18-prog.github.io/MASJIDUL-TAQWAA/','_blank')">
+🌐 Website Bani
+</button>
+</div>
+
+</section>
+
+<!-- SETTINGS -->
+
+<section class="page" id="settings">
+
+<button class="back-btn" onclick="goHome()">← Back</button>
+
+<div class="page-heading">
+<h2>⚙️ Settings</h2>
+<p>App Settings</p>
+</div>
+
+<div class="info-card">
+
+<div class="setting-row">
+<span>🌙 Dark Mode</span>
+<input type="checkbox" class="switch"
+id="darkToggle" onchange="toggleDark()">
+</div>
+
+<div class="setting-row">
+<span>🌐 Language / Afaan</span>
+
+<select id="language" onchange="changeLanguage()">
+<option value="om">Afaan Oromoo</option>
+<option value="en">English</option>
+<option value="ar">العربية</option>
+</select>
+</div>
+
+<div class="setting-row">
+<span>🔔 Notifications</span>
+<button class="copy-btn" onclick="enableNotifications()">
+Enable
+</button>
+</div>
+
+<div class="setting-row">
+<span>📤 Share App</span>
+<button class="copy-btn" onclick="shareApp()">Share</button>
+</div>
+
+<div class="setting-row">
+<span>ℹ️ About App</span>
+<button class="copy-btn" onclick="openPage('appinfo')">View</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT APP -->
+
+<section class="page" id="appinfo">
+
+<button class="back-btn" onclick="openPage('settings')">← Back</button>
+
+<div class="page-heading">
+<h2>ℹ️ About Application</h2>
+</div>
+
+<div class="info-card">
+<h3>MASJIDUL TAQWAA APP</h3>
+<p>
+Version: 1.0.0
+</p>
+<p>
+Developed by: KEYRADDIIN MEDIA
+</p>
+<p>
+Purpose: Odeeffannoo Masjidul Taqwaa
+fi deeggarsa hawaasaa salphisuuf.
+</p>
+<br>
+<p>
+© 2026 KEYRADDIIN MEDIA
+</p>
+</div>
+
+</section>
+
+<footer>
+🕌 MASJIDUL TAQWAA<br>
+Ganda Kufakasa<br>
+Developed by KEYRADDIIN MEDIA<br>
+© 2026 All Rights Reserved
+</footer>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+<button class="nav-item active" onclick="openPage('home',this)">
+<span>🏠</span>
+Home
+</button>
+
+<button class="nav-item" onclick="openPage('about',this)">
+<span>🕌</span>
+About
+</button>
+
+<button class="nav-item" onclick="openPage('donate',this)">
+<span>🤲</span>
+Donate
+</button>
+
+<button class="nav-item" onclick="openPage('notifications',this)">
+<span>🔔</span>
+News
+</button>
+
+<button class="nav-item" onclick="openPage('settings',this)">
+<span>⚙️</span>
+Settings
+</button>
+
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// NAVIGATION
+
+function openPage(page,element){
+
+document.querySelectorAll('.page').forEach(p=>{
+p.classList.remove('active');
+});
+
+const target=document.getElementById(page);
+
+if(target){
+target.classList.add('active');
+}
+
+document.querySelectorAll('.nav-item').forEach(n=>{
+n.classList.remove('active');
+});
+
+if(element){
+element.classList.add('active');
+}
+
+if(page==='home'){
+document.querySelector('.nav-item').classList.add('active');
+}
+
+window.scrollTo(0,0);
+
+}
+
+function goHome(){
+openPage('home');
+}
+
+// TOAST
+
+function showToast(message){
+
+const toast=document.getElementById('toast');
+
+toast.innerText=message;
+toast.style.display='block';
+
+setTimeout(()=>{
+toast.style.display='none';
+},2500);
+
+}
+
+// COPY
+
+async function copyText(text){
+
+try{
+
+await navigator.clipboard.writeText(text);
+showToast('Copied successfully! ✓');
+
+}catch(e){
+
+const input=document.createElement('textarea');
+
+input.value=text;
+document.body.appendChild(input);
+
+input.select();
+document.execCommand('copy');
+
+input.remove();
+
+showToast('Copied successfully! ✓');
+
+}
+
+}
+
+// DARK MODE
+
+function toggleDark(){
+
+const enabled=document.getElementById('darkToggle').checked;
+
+document.body.classList.toggle('dark',enabled);
+
+localStorage.setItem('taqwaDark',enabled);
+
+}
+
+// LOAD DARK MODE
+
+const savedDark=localStorage.getItem('taqwaDark')==='true';
+
+document.body.classList.toggle('dark',savedDark);
+
+document.getElementById('darkToggle').checked=savedDark;
+
+// LANGUAGE
+
+const translations={
+
+om:{
+welcome:'Assalaamu Alaykum! 🌙',
+hero:'Masjidul Taqwaa',
+description:'Masjida keenya waliin haa ijaarru.',
+donate:'🤲 Deeggarsa',
+about:'🕌 Waa’ee Masjidaa',
+explore:'Maal Ilaaluu Barbaadda?',
+quick:'Haala Ijaarsaa',
+construction:'Ijaarsi Masjidul Taqwaa itti fufee jira.'
+},
+
+en:{
+welcome:'Assalamu Alaikum! 🌙',
+hero:'Masjidul Taqwaa',
+description:'Let us build our mosque together.',
+donate:'🤲 Donate',
+about:'🕌 About Masjid',
+explore:'What Would You Like to Explore?',
+quick:'Construction Progress',
+construction:'Construction of Masjidul Taqwaa is ongoing.'
+},
+
+ar:{
+welcome:'السلام عليكم 🌙',
+hero:'مسجد التقوى',
+description:'لنبنِ مسجدنا معاً.',
+donate:'🤲 تبرع',
+about:'🕌 عن المسجد',
+explore:'ماذا تريد أن تستكشف؟',
+quick:'حالة البناء',
+construction:'تستمر أعمال بناء مسجد التقوى.'
+}
+
+};
+
+function changeLanguage(){
+
+const lang=document.getElementById('language').value;
+
+localStorage.setItem('taqwaLanguage',lang);
+
+const t=translations[lang];
+
+document.getElementById('welcomeText').innerText=t.welcome;
+document.getElementById('heroTitle').innerText=t.hero;
+document.getElementById('heroDescription').innerText=t.description;
+document.getElementById('donateBtn').innerText=t.donate;
+document.getElementById('aboutBtn').innerText=t.about;
+document.getElementById('exploreTitle').innerText=t.explore;
+document.getElementById('quickTitle').innerText=t.quick;
+document.getElementById('constructionText').innerText=t.construction;
+
+document.documentElement.lang=lang;
+
+document.body.classList.toggle('arabic',lang==='ar');
+
+showToast('Language changed ✓');
+
+}
+
+const savedLanguage=localStorage.getItem('taqwaLanguage')||'om';
+
+document.getElementById('language').value=savedLanguage;
+
+if(savedLanguage!=='om'){
+changeLanguage();
+}
+
+// NOTIFICATIONS
+
+async function enableNotifications(){
+
+if(!('Notification' in window)){
+showToast('Notifications not supported');
+return;
+}
+
+const permission=await Notification.requestPermission();
+
+if(permission==='granted'){
+
+new Notification('Masjidul Taqwaa',{
+body:'Baga gara appii keenya dhuftan!',
+icon:''
+});
+
+showToast('Notifications enabled ✓');
+
+}else{
+
+showToast('Notification permission not granted');
+
+}
+
+}
+
+// SHARE
+
+async function shareApp(){
+
+const data={
+title:'Masjidul Taqwaa',
+text:'Masjidul Taqwaa Official App',
+url:window.location.href
+};
+
+if(navigator.share){
+
+try{
+await navigator.share(data);
+}catch(e){}
+
+}else{
+
+copyText('Masjidul Taqwaa Official App');
+
+}
+
+}
+
+// INITIALIZATION
+
+console.log('MASJIDUL TAQWAA APP INITIALIZED');
+
+</script>
+
+</body>
+</html>
